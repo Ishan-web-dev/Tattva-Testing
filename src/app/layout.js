@@ -1,0 +1,41 @@
+import { Geist, Geist_Mono, Merriweather  } from "next/font/google";
+import "./globals.css";
+
+
+const merriweather = Merriweather({
+    variable: "--font-merriweather",
+    subsets: ["latin"],
+    weight: ["400", "700"],
+});
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata = {
+  title: "Tattva Hotel",
+  description: "way to Leave!",
+};
+
+export default function RootLayout({ children }) {
+  return (
+   <html
+    lang="en"
+    className={`
+        ${geistSans.variable}
+        ${geistMono.variable}
+        ${merriweather.variable}
+        h-full
+        antialiased
+    `}
+>
+      <body className="min-h-full flex flex-col">{children}</body>
+    </html>
+  );
+}
